@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="CalcX - A modern responsive calculator built with HTML, CSS and JavaScript."
+    >
+
+    <title>CalcX — Modern Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo-area">
+
+            <div class="logo-icon">
+                <span>▦</span>
+            </div>
+
+            <div>
+                <h1>Calc<span>X</span></h1>
+                <p>Calculate Smarter</p>
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#how-to-use">How to Use</a>
+        </nav>
+
+        <a
+            href="https://github.com/"
+            target="_blank"
+            class="github-btn"
+        >
+            <span>◉</span>
+            View Code
+        </a>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <!-- LEFT SIDE -->
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    CODSOFT INTERNSHIP
+                </div>
+
+                <h2>
+                    Calc<span>X</span>
+                </h2>
+
+                <h3>
+                    Modern Calculator
+                    <br>
+                    <span>for Modern Minds</span>
+                </h3>
+
+                <p class="hero-description">
+                    A clean, powerful and responsive calculator
+                    built with HTML, CSS and JavaScript.
+                    Designed for speed, simplicity and a
+                    beautiful user experience.
+                </p>
+
+
+                <div class="feature-list">
+
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <p>Perform basic arithmetic operations</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">◷</span>
+                        <p>Keep track of your calculations</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">⌨</span>
+                        <p>Full keyboard support</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">▯</span>
+                        <p>Responsive design for all devices</p>
+                    </div>
+
+                </div>
+
+
+                <button class="start-btn" onclick="scrollToCalculator()">
+                    Start Calculating
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <!-- CALCULATOR -->
+
+            <div class="calculator-wrapper" id="calculator">
+
+                <div class="calculator">
+
+                    <!-- Calculator Top -->
+
+                    <div class="calculator-top">
+
+                        <button class="mode-btn">
+                            STANDARD
+                            <span>⌄</span>
+                        </button>
+
+                        <div class="calculator-actions">
+
+                            <button id="themeBtn" title="Toggle Theme">
+                                ☼
+                            </button>
+
+                            <button id="clearHistoryBtn" title="Clear History">
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Display -->
+
+                    <div class="display">
+
+                        <div id="previousDisplay" class="previous-display">
+                            0
+                        </div>
+
+                        <div id="currentDisplay" class="current-display">
+                            0
+                        </div>
+
+                    </div>
+
+
+                    <!-- Buttons -->
+
+                    <div class="buttons">
+
+                        <button class="btn function" data-action="clear">
+                            AC
+                        </button>
+
+                        <button class="btn function" data-action="sign">
+                            +/−
+                        </button>
+
+                        <button class="btn function" data-action="percentage">
+                            %
+                        </button>
+
+                        <button class="btn delete" data-action="delete">
+                            ⌫
+                        </button>
+
+
+                        <button class="btn number" data-number="7">7</button>
+                        <button class="btn number" data-number="8">8</button>
+                        <button class="btn number" data-number="9">9</button>
+
+                        <button class="btn operator" data-operation="/">
+                            ÷
+                        </button>
+
+
+                        <button class="btn number" data-number="4">4</button>
+                        <button class="btn number" data-number="5">5</button>
+                        <button class="btn number" data-number="6">6</button>
+
+                        <button class="btn operator" data-operation="*">
+                            ×
+                        </button>
+
+
+                        <button class="btn number" data-number="1">1</button>
+                        <button class="btn number" data-number="2">2</button>
+                        <button class="btn number" data-number="3">3</button>
+
+                        <button class="btn operator" data-operation="-">
+                            −
+                        </button>
+
+
+                        <button class="btn number zero" data-number="0">
+                            0
+                        </button>
+
+                        <button class="btn number" data-number=".">
+                            .
+                        </button>
+
+                        <button class="btn operator" data-operation="+">
+                            +
+                        </button>
+
+
+                        <button class="btn equals" data-action="calculate">
+                            =
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <aside class="history-panel">
+
+                <div class="history-header">
+
+                    <h3>
+                        <span>◷</span>
+                        Calculation History
+                    </h3>
+
+                    <button id="clearAllHistory">
+                        Clear All
+                    </button>
+
+                </div>
+
+
+                <div id="historyList" class="history-list">
+
+                    <div class="empty-history">
+                        Your calculations will appear here.
+                    </div>
+
+                </div>
+
+
+                <div class="history-quote">
+                    <span></span>
+
+                    <p>
+                        "Small calculations
+                        lead to big results."
+                    </p>
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="info-section" id="about">
+
+            <div class="section-heading">
+
+                <span>ABOUT CALCX</span>
+
+                <h2>
+                    Simple tools.
+                    <span>Smart experience.</span>
+                </h2>
+
+                <p>
+                    CalcX is a modern web calculator designed
+                    with simplicity, usability and responsive
+                    design in mind.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="features-section" id="features">
+
+            <div class="section-heading">
+
+                <span>FEATURES</span>
+
+                <h2>
+                    Everything you need
+                    <span>to calculate.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="feature-cards">
+
+                <div class="feature-card">
+                    <div>⚡</div>
+                    <h3>Fast Calculations</h3>
+                    <p>
+                        Perform arithmetic calculations
+                        instantly with a smooth interface.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div>⌨</div>
+                    <h3>Keyboard Support</h3>
+                    <p>
+                        Use your keyboard to perform
+                        calculations quickly.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div>◷</div>
+                    <h3>History</h3>
+                    <p>
+                        Keep track of previous calculations
+                        without losing your results.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div>▯</div>
+                    <h3>Responsive</h3>
+                    <p>
+                        Designed to work smoothly across
+                        desktop, tablet and mobile.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW TO USE ================= -->
+
+        <section class="how-section" id="how-to-use">
+
+            <div class="section-heading">
+
+                <span>HOW TO USE</span>
+
+                <h2>
+                    Calculate in
+                    <span>three simple steps.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+                    <strong>01</strong>
+                    <h3>Enter Numbers</h3>
+                    <p>
+                        Enter your numbers using the
+                        calculator or keyboard.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <strong>02</strong>
+                    <h3>Select Operation</h3>
+                    <p>
+                        Choose addition, subtraction,
+                        multiplication or division.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <strong>03</strong>
+                    <h3>Get Result</h3>
+                    <p>
+                        Press equals and instantly
+                        get your calculated result.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-left">
+
+            <h2>Calc<span>X</span></h2>
+
+            <p>
+                Built with ❤️ using HTML, CSS & JavaScript
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#how-to-use">Contact</a>
+
+        </div>
+
+
+        <div class="footer-internship">
+
+            CodSoft Internship — Task 3
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
